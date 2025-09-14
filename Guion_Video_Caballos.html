@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guión para Video Explicativo: Sistema de Análisis de Caballos en Conflicto</title>
+    <style>
+        @page {
+            margin: 2cm;
+            size: A4;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 21cm;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        
+        h1 {
+            color: #7c2d12;
+            border-bottom: 3px solid #ea580c;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 24px;
+            text-align: center;
+        }
+        
+        h2 {
+            color: #9a3412;
+            background: linear-gradient(135deg, #fef7ed 0%, #fed7aa 100%);
+            padding: 12px 20px;
+            border-left: 4px solid #ea580c;
+            margin: 25px 0 15px 0;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        
+        h3 {
+            color: #9a3412;
+            margin: 20px 0 10px 0;
+            font-size: 16px;
+        }
+        
+        .narrator {
+            background: #f8fafc;
+            border-left: 4px solid #10b981;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+            font-style: italic;
+        }
+        
+        .narrator::before {
+            content: "🎙️ Narrador: ";
+            font-weight: bold;
+            color: #059669;
+            font-style: normal;
+        }
+        
+        .screen-note {
+            background: #fffbeb;
+            border: 1px solid #f59e0b;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        .screen-note::before {
+            content: "♛ ";
+            font-weight: bold;
+        }
+        
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.4;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        .keyword {
+            color: #60a5fa;
+            font-weight: bold;
+        }
+        
+        .concept-list {
+            background: #fef7ed;
+            border-left: 4px solid #ea580c;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .concept-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .concept-list li {
+            margin: 8px 0;
+        }
+        
+        .chess-board {
+            background: #f3f4f6;
+            border: 2px solid #6b7280;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        
+        .demo-example {
+            background: #fefce8;
+            border: 1px solid #ca8a04;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .demo-example h4 {
+            color: #a16207;
+            margin-top: 0;
+        }
+        
+        .algorithm-step {
+            background: #ecfdf5;
+            border: 1px solid #10b981;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #059669;
+        }
+        
+        .algorithm-step::before {
+            content: "⚙️ ";
+            font-weight: bold;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .benefit-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .benefit-card h4 {
+            color: #7c2d12;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .coordinate-example {
+            background: #f0f9ff;
+            border: 1px solid #0ea5e9;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-family: monospace;
+            text-align: center;
+        }
+        
+        .page-break {
+            page-break-before: always;
+        }
+        
+        .footer-note {
+            background: #f8fafc;
+            border-top: 2px solid #e2e8f0;
+            padding: 20px;
+            margin-top: 40px;
+            text-align: center;
+            font-size: 14px;
+            color: #64748b;
+        }
+        
+        @media print {
+            body { font-size: 12px; }
+            .screen-note { break-inside: avoid; }
+            .concept-list { break-inside: avoid; }
+            .demo-example { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Guión para Video Explicativo:<br>Sistema de Análisis de Caballos en Conflicto</h1>
+
+    <h2>Introducción</h2>
+
+    <div class="screen-note">
+        <strong>[Pantalla de Título: "Caballos en Conflicto - Programación Orientada a Objetos en Ajedrez"]</strong>
+    </div>
+
+    <div class="narrator">
+        ¡Hola! Bienvenidos a este tutorial donde combinaremos el fascinante mundo del ajedrez con la Programación Orientada a Objetos. Crearemos un sistema que analiza conflictos entre caballos en un tablero de ajedrez.
+    </div>
+
+    <div class="screen-note">
+        <strong>[Mostrar tablero de ajedrez con varios caballos posicionados]</strong>
+    </div>
+
+    <div class="narrator">
+        Los caballos son las piezas más únicas del ajedrez: se mueven en forma de "L" y pueden "saltar" sobre otras piezas. Nuestro sistema determinará cuándo un caballo está "en conflicto", es decir, bajo amenaza de otro caballo.
+    </div>
+
+    <div class="concept-list">
+        <strong>Reglas del movimiento del caballo:</strong>
+        <ul>
+            <li><strong>Forma de L:</strong> 2 casillas en una dirección + 1 casilla perpendicular</li>
+            <li><strong>8 movimientos posibles:</strong> desde cualquier posición válida</li>
+            <li><strong>Notación algebraica:</strong> columnas A-H, filas 1-8 (ejemplo: B7, C5)</li>
+        </ul>
+    </div>
+
+    <div class="coordinate-example">
+        <strong>Ejemplo de entrada:</strong> B7,C5,E2,H7,G5,F6<br>
+        <strong>Salida esperada:</strong> Análisis de conflictos entre cada par de caballos
+    </div>
+
+    <div class="narrator">
+        Nuestro objetivo es crear un sistema que convierta notación algebraica a coordenadas, calcule movimientos posibles y detecte amenazas automáticamente.
+    </div>
+
+    <h2>Desarrollo Parte 1: La Estructura Coordinate</h2>
+
+    <div class="screen-note">
+        <strong>[Mostrar código de la estructura Coordinate]</strong>
+    </div>
+
+    <div class="narrator">
+        Comenzamos con una <strong>estructura Coordinate</strong> que representa una posición en el tablero:
+    </div>
+
+    <div class="code-block">
+<span class="keyword">public struct</span> Coordinate
+{
+    <span class="keyword">public int</span> X;
+    <span class="keyword">public int</span> Y;
+
+    <span class="keyword">public</span> Coordinate(<span class="keyword">int</span> x, <span class="keyword">int</span> y)
+    {
+        X = x;
+        Y = y;
+    }
+
+    <span class="keyword">public override bool</span> Equals(<span class="keyword">object</span> obj)
+    {
+        <span class="keyword">if</span> (obj <span class="keyword">is</span> Coordinate)
+        {
+            Coordinate coord = (Coordinate)obj;
+            <span class="keyword">return</span> X == coord.X && Y == coord.Y;
+        }
+        <span class="keyword">return false</span>;
+    }
+}
+    </div>
+
+    <div class="narrator">
+        Aquí vemos un concepto importante: <strong>struct vs class</strong>:
+    </div>
+
+    <div class="concept-list">
+        <strong>¿Por qué usar struct?</strong>
+        <ul>
+            <li><strong>Tipo de valor:</strong> se almacena directamente en memoria, no como referencia</li>
+            <li><strong>Inmutabilidad:</strong> ideal para coordenadas que no cambian</li>
+            <li><strong>Rendimiento:</strong> menos overhead de memoria que las clases</li>
+            <li><strong>Comparación:</strong> podemos sobrescribir Equals() para comparar posiciones</li>
+        </ul>
+    </div>
+
+    <div class="algorithm-step">
+        <strong>Método Equals() personalizado:</strong> Permite comparar dos coordenadas directamente, esencial para detectar si un caballo amenaza la posición de otro.
+    </div>
+
+    <div class="narrator">
+        Esta estructura encapsula las coordenadas X,Y y proporciona métodos para compararlas. Es la base matemática de todo nuestro sistema.
+    </div>
+
+    <h2>Desarrollo Parte 2: La Clase Knight</h2>
+
+    <div class="screen-note">
+        <strong>[Mostrar código de la clase Knight]</strong>
+    </div>
+
+    <div class="narrator">
+        La clase <strong>Knight</strong> es el corazón de nuestro sistema. Representa un caballo con su posición y capacidades:
+    </div>
+
+    <div class="code-block">
+<span class="keyword">public class</span> Knight
+{
+    <span class="keyword">public string</span> PositionAlgebraic { <span class="keyword">get</span>; <span class="keyword">private set</span>; }
+    <span class="keyword">public int</span> X { <span class="keyword">get</span>; <span class="keyword">private set</span>; }
+    <span class="keyword">public int</span> Y { <span class="keyword">get</span>; <span class="keyword">private set</span>; }
+
+    <span class="keyword">public</span> Knight(<span class="keyword">string</span> algebraicPosition)
+    {
+        PositionAlgebraic = algebraicPosition.ToUpper();
+        ConvertAlgebraicToCoordinates();
+    }
+}
+    </div>
+
+    <div class="narrator">
+        Esta clase maneja dos representaciones de la misma información:
+    </div>
+
+    <div class="concept-list">
+        <strong>Doble representación:</strong>
+        <ul>
+            <li><strong>PositionAlgebraic:</strong> notación humana (B7, C5, etc.)</li>
+            <li><strong>X, Y:</strong> coordenadas numéricas para cálculos (2,7), (3,5), etc.</li>
+            <li><strong>Conversión automática:</strong> el constructor maneja la transformación</li>
+            <li><strong>Encapsulación:</strong> propiedades de solo lectura protegen la integridad</li>
+        </ul>
+    </div>
+
+    <h3>Conversión Algebraica a Coordenadas</h3>
+
+    <div class="screen-note">
+        <strong>[Mostrar método ConvertAlgebraicToCoordinates]</strong>
+    </div>
+
+    <div class="code-block">
+<span class="keyword">private void</span> ConvertAlgebraicToCoordinates()
+{
+    <span class="keyword">char</span> column = PositionAlgebraic[0];  // A, B, C...
+    <span class="keyword">char</span> row = PositionAlgebraic[1];     // 1, 2, 3...
+
+    // Convertir columna (A-H) a número (1-8)
+    <span class="keyword">if</span> (column >= 'A' && column <= 'H')
+        X = column - 'A' + 1;
+
+    // Convertir fila (1-8) a número
+    <span class="keyword">if</span> (row >= '1' && row <= '8')
+        Y = row - '0';
+}
+    </div>
+
+    <div class="narrator">
+        Este método realiza una <strong>traducción matemática</strong>:
+    </div>
+
+    <div class="coordinate-example">
+        <strong>Ejemplos de conversión:</strong><br>
+        A1 → (1,1) | B7 → (2,7) | H8 → (8,8)<br>
+        <strong>Fórmula:</strong> X = letra - 'A' + 1, Y = número - '0'
+    </div>
+
+    <div class="algorithm-step">
+        <strong>Validación integrada:</strong> Verifica que las coordenadas estén dentro del tablero (A-H, 1-8) y lanza excepciones si son inválidas.
+    </div>
+
+    <div class="page-break"></div>
+
+    <h3>Cálculo de Movimientos Posibles</h3>
+
+    <div class="screen-note">
+        <strong>[Mostrar método GetPossibleMoves]</strong>
+    </div>
+
+    <div class="narrator">
+        El método más importante es <strong>GetPossibleMoves()</strong>, que calcula las 8 posiciones que puede atacar un caballo:
+    </div>
+
+    <div class="code-block">
+<span class="keyword">public</span> List&lt;Coordinate&gt; GetPossibleMoves()
+{
+    List&lt;Coordinate&gt; possibleMoves = <span class="keyword">new</span> List&lt;Coordinate&gt;();
+
+    // Los 8 movimientos posibles del caballo en forma de L
+    <span class="keyword">int</span>[] deltaX = { 2, 2, -2, -2, 1, 1, -1, -1 };
+    <span class="keyword">int</span>[] deltaY = { 1, -1, 1, -1, 2, -2, 2, -2 };
+
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = 0; i < 8; i++)
+    {
+        <span class="keyword">int</span> newX = X + deltaX[i];
+        <span class="keyword">int</span> newY = Y + deltaY[i];
+
+        <span class="keyword">if</span> (newX >= 1 && newX <= 8 && newY >= 1 && newY <= 8)
+        {
+            possibleMoves.Add(<span class="keyword">new</span> Coordinate(newX, newY));
+        }
+    }
+
+    <span class="keyword">return</span> possibleMoves;
+}
+    </div>
+
+    <div class="narrator">
+        Este algoritmo usa <strong>vectores de desplazamiento</strong> para modelar el movimiento en L:
+    </div>
+
+    <div class="concept-list">
+        <strong>Vectores de movimiento:</strong>
+        <ul>
+            <li><strong>deltaX, deltaY:</strong> arrays paralelos que definen los 8 movimientos</li>
+            <li><strong>Patrón sistemático:</strong> (+2,+1), (+2,-1), (-2,+1), (-2,-1), (+1,+2), (+1,-2), (-1,+2), (-1,-2)</li>
+            <li><strong>Validación de límites:</strong> solo agrega movimientos dentro del tablero</li>
+            <li><strong>Estructura de datos:</strong> devuelve List&lt;Coordinate&gt; para flexibilidad</li>
+        </ul>
+    </div>
+
+    <div class="chess-board">
+        <strong>Ejemplo visual desde B7 (2,7):</strong><br>
+        Puede atacar: A5, C5, D6, D8<br>
+        (Los otros 4 movimientos salen del tablero)
+    </div>
+
+    <h2>Desarrollo Parte 3: La Clase ChessBoard</h2>
+
+    <div class="screen-note">
+        <strong>[Mostrar código de ChessBoard]</strong>
+    </div>
+
+    <div class="narrator">
+        La clase <strong>ChessBoard</strong> coordina todo el análisis. Actúa como el "cerebro" que maneja múltiples caballos:
+    </div>
+
+    <div class="code-block">
+<span class="keyword">public class</span> ChessBoard
+{
+    <span class="keyword">public</span> List&lt;Knight&gt; Knights { <span class="keyword">get</span>; <span class="keyword">private set</span>; }
+
+    <span class="keyword">public</span> ChessBoard()
+    {
+        Knights = <span class="keyword">new</span> List&lt;Knight&gt;();
+    }
+
+    <span class="keyword">public void</span> AddKnightsFromString(<span class="keyword">string</span> positions)
+    {
+        <span class="keyword">string</span>[] positionArray = positions.Split(',');
+        <span class="keyword">foreach</span> (<span class="keyword">string</span> position <span class="keyword">in</span> positionArray)
+        {
+            <span class="keyword">try</span>
+            {
+                Knight knight = <span class="keyword">new</span> Knight(position.Trim());
+                AddKnight(knight);
+            }
+            <span class="keyword">catch</span> (ArgumentException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+        }
+    }
+}
+    </div>
+
+    <div class="narrator">
+        Esta clase demuestra <strong>procesamiento de entrada</strong> robusto:
+    </div>
+
+    <div class="concept-list">
+        <strong>Características del parsing:</strong>
+        <ul>
+            <li><strong>Split() por comas:</strong> convierte string en array de posiciones</li>
+            <li><strong>Trim():</strong> elimina espacios extras automáticamente</li>
+            <li><strong>Try-catch:</strong> maneja posiciones inválidas sin crash</li>
+            <li><strong>Colección dinámica:</strong> List&lt;Knight&gt; crece según la entrada</li>
+        </ul>
+    </div>
+
+    <h3>Análisis de Conflictos</h3>
+
+    <div class="screen-note">
+        <strong>[Mostrar método FindThreatenedKnights]</strong>
+    </div>
+
+    <div class="narrator">
+        El método <strong>FindThreatenedKnights()</strong> implementa la lógica de detección de amenazas:
+    </div>
+
+    <div class="code-block">
+<span class="keyword">public</span> List&lt;Knight&gt; FindThreatenedKnights(Knight attacker)
+{
+    List&lt;Knight&gt; threatenedKnights = <span class="keyword">new</span> List&lt;Knight&gt;();
+    List&lt;Coordinate&gt; possibleMoves = attacker.GetPossibleMoves();
+
+    <span class="keyword">foreach</span> (Knight targetKnight <span class="keyword">in</span> Knights)
+    {
+        <span class="keyword">if</span> (targetKnight == attacker) <span class="keyword">continue</span>;
+
+        Coordinate targetPosition = <span class="keyword">new</span> Coordinate(targetKnight.X, targetKnight.Y);
+        <span class="keyword">foreach</span> (Coordinate move <span class="keyword">in</span> possibleMoves)
+        {
+            <span class="keyword">if</span> (move.Equals(targetPosition))
+            {
+                threatenedKnights.Add(targetKnight);
+                <span class="keyword">break</span>;
+            }
+        }
+    }
+
+    <span class="keyword">return</span> threatenedKnights;
+}
+    </div>
+
+    <div class="narrator">
+        Este algoritmo realiza una <strong>comparación exhaustiva</strong>:
+    </div>
+
+    <div class="algorithm-step">
+        <strong>Algoritmo paso a paso:</strong>
+        1. Obtiene todos los movimientos posibles del caballo atacante
+        2. Para cada otro caballo en el tablero
+        3. Convierte su posición a Coordinate
+        4. Compara con cada movimiento posible usando Equals()
+        5. Si hay coincidencia, lo agrega a la lista de amenazados
+    </div>
+
+    <div class="concept-list">
+        <strong>Optimizaciones implementadas:</strong>
+        <ul>
+            <li><strong>Auto-exclusión:</strong> un caballo no puede amenazarse a sí mismo</li>
+            <li><strong>Break temprano:</strong> sale del loop cuando encuentra amenaza</li>
+            <li><strong>Reutilización:</strong> usa el método GetPossibleMoves() existente</li>
+            <li><strong>Separación de responsabilidades:</strong> detecta amenazas, no las muestra</li>
+        </ul>
+    </div>
+
+    <h2>Desarrollo Parte 4: Formato de Salida y Interfaz</h2>
+
+    <div class="screen-note">
+        <strong>[Mostrar método AnalyzeConflicts]</strong>
+    </div>
+
+    <div class="narrator">
+        El método <strong>AnalyzeConflicts()</strong> produce la salida en el formato específico requerido:
+    </div>
+
+    <div class="code-block">
+<span class="keyword">public void</span> AnalyzeConflicts()
+{
+    <span class="keyword">foreach</span> (Knight knight <span class="keyword">in</span> Knights)
+    {
+        List&lt;Knight&gt; threatenedKnights = FindThreatenedKnights(knight);
+
+        Console.Write("Analizando Caballo en " + knight.Y + knight.PositionAlgebraic[0] + " => ");
+
+        <span class="keyword">if</span> (threatenedKnights.Count == 0)
+        {
+            Console.WriteLine("");
+        }
+        <span class="keyword">else</span>
+        {
+            <span class="keyword">for</span> (<span class="keyword">int</span> i = 0; i < threatenedKnights.Count; i++)
+            {
+                Knight threatened = threatenedKnights[i];
+                Console.Write("Conflicto con " + threatened.Y + threatened.PositionAlgebraic[0]);
+                
+                <span class="keyword">if</span> (i < threatenedKnights.Count - 1)
+                {
+                    Console.WriteLine("");
+                    Console.Write("Conflicto con ");
+                }
+            }
+            Console.WriteLine("");
+        }
+    }
+}
+    </div>
+
+    <div class="narrator">
+        Este método maneja el <strong>formato de salida específico</strong>:
+    </div>
+
+    <div class="concept-list">
+        <strong>Características del formato:</strong>
+        <ul>
+            <li><strong>Inversión de coordenadas:</strong> muestra "7B" en lugar de "B7" (fila + columna)</li>
+            <li><strong>Múltiples conflictos:</strong> cada uno en línea separada con "Conflicto con"</li>
+            <li><strong>Sin conflictos:</strong> línea vacía después del "=>"</li>
+            <li><strong>Formato consistente:</strong> misma estructura para todos los caballos</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Desarrollo Parte 5: El Programa Principal</h2>
+
+    <div class="screen-note">
+        <strong>[Mostrar código del Main]</strong>
+    </div>
+
+    <div class="narrator">
+        El programa principal demuestra <strong>arquitectura modular</strong>:
+    </div>
+
+    <div class="code-block">
+<span class="keyword">public static void</span> Main(<span class="keyword">string</span>[] args)
+{
+    Console.WriteLine("=== Sistema de Análisis de Caballos en Conflicto ===");
+    
+    // Ejecutar caso de prueba automático
+    RunTestCase();
+
+    // Permitir entrada manual del usuario
+    <span class="keyword">while</span> (<span class="keyword">true</span>)
+    {
+        Console.Write("Ingrese ubicación de los caballos (o 'salir' para terminar): ");
+        <span class="keyword">string</span> input = Console.ReadLine();
+        
+        <span class="keyword">if</span> (string.IsNullOrEmpty(input) || input.ToLower() == "salir")
+            <span class="keyword">break</span>;
+
+        ProcessKnightPositions(input);
+    }
+}
+
+<span class="keyword">public static void</span> ProcessKnightPositions(<span class="keyword">string</span> positions)
+{
+    ChessBoard board = <span class="keyword">new</span> ChessBoard();
+    board.AddKnightsFromString(positions);
+    board.AnalyzeConflicts();
+}
+    </div>
+
+    <div class="narrator">
+        Este diseño demuestra <strong>principios de arquitectura limpia</strong>:
+    </div>
+
+    <div class="concept-list">
+        <strong>Separación de responsabilidades:</strong>
+        <ul>
+            <li><strong>Main():</strong> interfaz de usuario y control de flujo</li>
+            <li><strong>RunTestCase():</strong> pruebas automáticas</li>
+            <li><strong>ProcessKnightPositions():</strong> lógica de procesamiento</li>
+            <li><strong>ChessBoard:</strong> análisis de ajedrez</li>
+        </ul>
+    </div>
+
+    <div class="algorithm-step">
+        <strong>Flujo de datos:</strong> Entrada de texto → Parsing → Objetos Knight → Análisis → Salida formateada
+    </div>
+
+    <h2>Demostración Práctica</h2>
+
+    <div class="screen-note">
+        <strong>[Mostrar ejecución del programa]</strong>
+    </div>
+
+    <div class="narrator">
+        Veamos el sistema con el caso de prueba: <strong>B7,C5,E2,H7,G5,F6</strong>
+    </div>
+
+    <div class="demo-example">
+        <h4>Análisis paso a paso:</h4>
+        <ul>
+            <li><strong>B7 (2,7):</strong> Puede atacar A5, C5, D6, D8 → ✅ Amenaza a C5</li>
+            <li><strong>C5 (3,5):</strong> Puede atacar A4, A6, B3, B7, D3, D7, E4, E6 → ✅ Amenaza a B7</li>
+            <li><strong>E2 (5,2):</strong> Puede atacar C1, C3, D4, F4, G1, G3 → ❌ No amenaza a nadie</li>
+            <li><strong>H7 (8,7):</strong> Puede atacar F6, F8, G5 → ✅ Amenaza a F6</li>
+            <li><strong>G5 (7,5):</strong> Puede atacar E4, E6, F3, F7, H3, H7 → ✅ Amenaza a H7</li>
+            <li><strong>F6 (6,6):</strong> Puede atacar D5, D7, E4, E8, G4, G8, H5, H7 → ✅ Amenaza a G5 y H7</li>
+        </ul>
+    </div>
+
+    <div class="coordinate-example">
+        <strong>Salida esperada:</strong><br>
+        Analizando Caballo en 7B => Conflicto con 5C<br>
+        Analizando Caballo en 5C => Conflicto con 7B<br>
+        Analizando Caballo en 2E =><br>
+        Analizando Caballo en 7H => Conflicto con 6F<br>
+        Analizando Caballo en 5G => Conflicto con 7H<br>
+        Analizando Caballo en 6F => Conflicto con 7H<br>
+        Conflicto con 5G
+    </div>
+
+    <div class="narrator">
+        Este ejemplo demuestra <strong>detección automática</strong> de amenazas mutuas y múltiples conflictos por caballo.
+    </div>
+
+    <h2>Conclusión</h2>
+
+    <div class="screen-note">
+        <strong>[Mostrar diagrama de arquitectura del sistema]</strong>
+    </div>
+
+    <div class="narrator">
+        Este proyecto integra <strong>múltiples conceptos avanzados</strong> de programación:
+    </div>
+
+    <div class="benefits-grid">
+        <div class="benefit-card">
+            <h4>Structures vs Classes</h4>
+            <p><strong>Coordinate</strong> como struct para datos inmutables y comparaciones eficientes</p>
+        </div>
+        <div class="benefit-card">
+            <h4>Encapsulación</h4>
+            <p>Propiedades de solo lectura y métodos privados protegen la integridad de datos</p>
+        </div>
+        <div class="benefit-card">
+            <h4>Algoritmos</h4>
+            <p>Vectores de desplazamiento y comparación de coordenadas para lógica de ajedrez</p>
+        </div>
+        <div class="benefit-card">
+            <h4>Manejo de Errores</h4>
+            <p>Validación robusta y try-catch para entrada del usuario</p>
+        </div>
+    </div>
+
+    <div class="concept-list">
+        <strong>Conceptos de POO aplicados:</strong>
+        <ul>
+            <li><strong>Abstracción:</strong> Knight encapsula lógica de ajedrez</li>
+            <li><strong>Encapsulación:</strong> Datos protegidos con propiedades</li>
+            <li><strong>Composición:</strong> ChessBoard contiene múltiples Knights</li>
+            <li><strong>Modularidad:</strong> Separación clara de responsabilidades</li>
+        </ul>
+    </div>
+
+    <div class="concept-list">
+        <strong>Aplicaciones prácticas:</strong>
+        <ul>
+            <li><strong>Motores de ajedrez:</strong> análisis de posiciones y amenazas</li>
+            <li><strong>Videojuegos:</strong> sistemas de movimiento y colisiones</li>
+            <li><strong>Algoritmos de pathfinding:</strong> navegación en grillas</li>
+            <li><strong>Sistemas de coordenadas:</strong> mapeo y transformaciones</li>
+        </ul>
+    </div>
+
+    <div class="narrator">
+        Este sistema demuestra cómo la programación puede modelar reglas complejas del mundo real. La combinación de matemáticas, lógica y POO crea soluciones elegantes y extensibles.
+    </div>
+
+    <div class="narrator">
+        El ajedrez, con sus reglas precisas y posiciones complejas, es un excelente dominio para aplicar conceptos de programación estructurada y orientada a objetos.
+    </div>
+
+    <div class="screen-note">
+        <strong>[Pantalla final con tablero de ajedrez mostrando amenazas detectadas]</strong>
+    </div>
+
+    <div class="narrator">
+        ¡Gracias por acompañarnos en este recorrido por el ajedrez computacional y la Programación Orientada a Objetos!
+    </div>
+
+    <div class="footer-note">
+        <strong>♛ Instrucciones para convertir a PDF:</strong><br>
+        1. Abra este archivo HTML en cualquier navegador web<br>
+        2. Use Ctrl+P (o Cmd+P en Mac) para imprimir<br>
+        3. Seleccione "Guardar como PDF" como destino<br>
+        4. Ajuste márgenes si es necesario<br>
+        <br>
+        <strong>Sistema de Análisis de Caballos en Conflicto - Guión de Video Explicativo</strong>
+    </div>
+</body>
+</html>
